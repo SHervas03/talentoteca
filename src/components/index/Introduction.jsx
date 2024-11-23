@@ -1,27 +1,29 @@
 function Introduction() {
     return (
         <>
-            <section className="bg-white">
-                <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-                    <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
-                        Innovando para Todos: Productos que Conectan a Tu Familia (¡y tu Mascota!)
-                    </h1>
-                    <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">
-                        En colaboración con Kellogg's, estamos desarrollando productos que no solo nutren, sino que también fortalecen el vínculo entre toda tu familia, incluyendo a tus amigos peludos.
-                    </p>
-                    <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-                        <a href="#prototipos" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-kelloggs hover:bg-kelloggsHover focus:ring-4 focus:ring-kelloggs">
-                            Explora nuestros prototipos
-                            <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                        <a href="#contacto" className="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-kelloggsHover focus:z-10 focus:ring-4 focus:ring-gray-100">
-                            Saber más
-                        </a>
+            <div className="relative px-6 pt-14 lg:px-8">
+                <div className="mx-auto max-w-7xl py-32 sm:py-48 lg:py-32">
+                    <div className="text-center">
+                        <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
+                            Innovando para Todos: Productos que Conectan a Tu Familia (¡y tu Mascota!)
+                        </h1>
+                        <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                            En colaboración con Kellogg's, estamos desarrollando productos que no solo nutren, sino que también fortalecen el vínculo entre toda tu familia, incluyendo a tus amigos peludos.
+                        </p>
+                        <div className="mt-10 flex items-center justify-center gap-x-6">
+                            <a
+                                href="#"
+                                className="rounded-md bg-kelloggs px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-kelloggsHover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            >
+                                Empezar
+                            </a>
+                            <a href="#" className="text-sm/6 font-semibold text-gray-900">
+                                Saber más <span aria-hidden="true">→</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </>
     );
 }
