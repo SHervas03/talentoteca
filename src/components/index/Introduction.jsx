@@ -2,12 +2,12 @@ function Introduction() {
     return (
         <>
             <div className="relative px-6 pt-14 lg:px-8">
-                <div className="mx-auto max-w-7xl py-32 sm:py-48 lg:py-32">
+                <div className="mx-auto max-w-5xl py-32 sm:py-32 lg:py-32">
                     <div className="text-center">
-                        <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
+                        <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
                             Innovando para Todos: Productos que Conectan a Tu Familia (¡y tu Mascota!)
                         </h1>
-                        <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                        <p className="mt-10 text-pretty text-lg font-medium text-gray-500 sm:text-xl/10">
                             En colaboración con Kellogg's, estamos desarrollando productos que no solo nutren, sino que también fortalecen el vínculo entre toda tu familia, incluyendo a tus amigos peludos.
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
