@@ -1,4 +1,4 @@
-import Introduction from "../components/index/introduction";
+import Introduction from "../components/index/Introduction";
 
 function Index() {
   return (
