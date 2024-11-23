@@ -19,6 +19,13 @@ function Nav() {
       ? "text-kelloggs"
       : "text-black hover:text-kelloggsHover duration-300";
   };
+  const classNamePathsm = (path) => {
+    const isActive =
+      path === "/" ? location.pathname === path : location.pathname.startsWith(path);
+    return isActive
+      ? "text-kelloggs"
+      : "text-white hover:text-kelloggsHover duration-300";
+  };
 
 
   return (
@@ -84,7 +91,7 @@ function Nav() {
 
       {/* Fullscreen Navigation Menu for Mobile */}
       {isMenuOpen && (
-        <div className="fixed top-0 left-0 z-50 w-full h-full bg-gray-900 bg-opacity-90 flex items-center justify-center text-white md:hidden">
+        <div className="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-90 flex items-center justify-center text-white md:hidden">
           <button
             type="button"
             className="absolute top-6 right-4 text-gray-400 hover:text-white"
@@ -111,7 +118,7 @@ function Nav() {
               <li key={link.name}>
                 <Link
                   to={link.path}
-                  className={`${classNamePath(link.path)} text-lg`}
+                  className={`${classNamePathsm(link.path)} text-lg`}
                   onClick={toggleMenu}
                 >
                   {link.name}
