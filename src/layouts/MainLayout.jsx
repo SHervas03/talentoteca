@@ -6,6 +6,7 @@ import { useEffect } from "react";
 function MainLayout() {
 
     const location = useLocation()
+    
 
     useEffect(() => {
         switch (location.pathname) {
