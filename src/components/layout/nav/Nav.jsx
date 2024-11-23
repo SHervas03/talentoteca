@@ -39,7 +39,7 @@ function Nav() {
             type="button"
             className="text-white bg-kelloggs hover:bg-kelloggsHover focus:ring-4 focus:outline-none focus:ring-kelloggs font-medium rounded-lg text-sm px-4 py-2"
           >
-            Get started
+            Area privada
           </button>
           <button
             type="button"
