@@ -42,12 +42,12 @@ function Nav() {
 
         {/* Buttons and Menu Toggle */}
         <div className="flex md:order-2 space-x-3 rtl:space-x-reverse">
-          <button
-            type="button"
+          <Link
+            to="/Registro"
             className="text-white bg-kelloggs hover:bg-kelloggsHover focus:ring-4 focus:outline-none focus:ring-kelloggs font-medium rounded-lg text-sm px-4 py-2"
           >
             Area privada
-          </button>
+          </Link>
           <button
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:ring-2 focus:ring-gray-200"

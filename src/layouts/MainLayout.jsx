@@ -6,7 +6,7 @@ import { useEffect } from "react";
 function MainLayout() {
 
     const location = useLocation()
-    
+
 
     useEffect(() => {
         switch (location.pathname) {
@@ -19,18 +19,20 @@ function MainLayout() {
             case "/FAQ":
                 document.title = "FAQ";
                 break;
-            case "/Contact":
-                document.title = "Contacto";
+            case "/Registro":
+                document.title = "Registro";
                 break;
             default:
         }
     }, [location.pathname]);
 
+    const isAuthRoute = location.pathname === "/Registro";
+
     return (
         <>
-            <Nav />
+            {!isAuthRoute && <Nav />}
             <Outlet />
-            <Footer />
+            {!isAuthRoute && <Footer />}
         </>
     )
 }
