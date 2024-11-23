@@ -2,7 +2,7 @@ function Introduction() {
     return (
         <>
             <div className="relative px-6 pt-14 lg:px-8">
-                <div className="mx-auto max-w-5xl py-32 sm:py-32 lg:py-32">
+                <div className="mx-auto max-w-5xl py-20 sm:py-24 lg:py-32">
                     <div className="text-center">
                         <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
                             Innovando para Todos: Productos que Conectan a Tu Familia (¡y tu Mascota!)
