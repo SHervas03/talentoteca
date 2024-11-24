@@ -4,6 +4,7 @@ import MainLayout from '../layouts/MainLayout.jsx'
 import Recipes from '../pages/Recipes.jsx';
 import FAQ from '../pages/FAQ.jsx';
 import Register from '../pages/Register.jsx';
+import Pets from '../pages/Pets.jsx';
 
 function RouteSystem() {
 
@@ -15,6 +16,7 @@ function RouteSystem() {
                     <Route path="Recetas" element={<Recipes />} />
                     <Route path="FAQ" element={<FAQ />} />
                     <Route path="Registro" element={<Register />} />
+                    <Route path="Mascotas" element={<Pets />} />
                 </Route>
             </Routes>
         </BrowserRouter>

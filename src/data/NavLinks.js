@@ -13,6 +13,11 @@ const NavLinks = [
         name: "FAQ",
         path: "/FAQ",
         to: "/FAQ"
+    },
+    {
+        name: "Mis Mascotas",
+        path: "/Mascotas",
+        to: "/Mascotas"
     }
 ];
 

@@ -15,7 +15,7 @@ function FAQ() {
           <h2 id={`accordion-flush-heading-${faq.id}`}>
             <button
               type="button"
-              className="flex items-center justify-between w-full py-5 font-medium text-black border-b border-gray-200 gap-3"
+              className="flex justify-between w-full py-5 font-medium text-black border-b border-gray-200 gap-3"
               onClick={() => toggleAccordion(faq.id)}
               aria-expanded={openItem === faq.id}
               aria-controls={`accordion-flush-body-${faq.id}`}
