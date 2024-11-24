@@ -11,7 +11,7 @@ function Register() {
 
   return (
     <div className="flex justify-center items-center md:min-h-screen bg-gray-100 md:p-6">
-      <div className="w-full max-w-7xl bg-white rounded-lg shadow-lg p-6">
+      <div className="w-full max-w-7xl bg-white rounded-lg md:shadow-lg md:p-6">
         {/* Tabs Header */}
         <div className="mb-4 border-b border-gray-200">
           <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
