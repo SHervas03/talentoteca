@@ -1,59 +1,6 @@
-function FormRegister() {
+function FormHumanos() {
     return (
       <form className="h-full w-full flex flex-col justify-center items-center bg-white py-6">
-        {/* Email Field */}
-        <div className="relative z-0 w-3/4 mb-6 group">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-          <label
-            htmlFor="email"
-            className="absolute text-sm text-gray-500 transform scale-75 top-3 -z-10 origin-[0] transition-all peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Email address
-          </label>
-        </div>
-  
-        {/* Password Field */}
-        <div className="relative z-0 w-3/4 mb-6 group">
-          <input
-            type="password"
-            name="password"
-            id="password"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-          <label
-            htmlFor="password"
-            className="absolute text-sm text-gray-500 transform scale-75 top-3 -z-10 origin-[0] transition-all peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Password
-          </label>
-        </div>
-  
-        {/* Confirm Password Field */}
-        <div className="relative z-0 w-3/4 mb-6 group">
-          <input
-            type="password"
-            name="confirm_password"
-            id="confirm_password"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-          <label
-            htmlFor="confirm_password"
-            className="absolute text-sm text-gray-500 transform scale-75 top-3 -z-10 origin-[0] transition-all peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Confirm password
-          </label>
-        </div>
   
         {/* First Name and Last Name */}
         <div className="grid md:grid-cols-2 md:gap-6 w-3/4">
@@ -70,7 +17,7 @@ function FormRegister() {
               htmlFor="first_name"
               className="absolute text-sm text-gray-500 transform scale-75 top-3 -z-10 origin-[0] transition-all peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              First name
+              Nombre*
             </label>
           </div>
           <div className="relative z-0 w-full mb-6 group">
@@ -86,7 +33,7 @@ function FormRegister() {
               htmlFor="last_name"
               className="absolute text-sm text-gray-500 transform scale-75 top-3 -z-10 origin-[0] transition-all peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              Last name
+              Apellidos*
             </label>
           </div>
         </div>
@@ -107,7 +54,7 @@ function FormRegister() {
               htmlFor="phone"
               className="absolute text-sm text-gray-500 transform scale-75 top-3 -z-10 origin-[0] transition-all peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              Phone number
+              Dirección*
             </label>
           </div>
           <div className="relative z-0 w-full mb-6 group">
@@ -123,7 +70,7 @@ function FormRegister() {
               htmlFor="company"
               className="absolute text-sm text-gray-500 transform scale-75 top-3 -z-10 origin-[0] transition-all peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              Company (Ex. Google)
+              Codigo Postal*
             </label>
           </div>
         </div>
@@ -139,5 +86,5 @@ function FormRegister() {
     );
   }
   
-  export default FormRegister;
+  export default FormHumanos;
   

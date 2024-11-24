@@ -1,5 +1,7 @@
 import { useState } from "react";
-import FormRegister from "../components/register/FormRegister";
+import FormHumanos from "../components/register/FormHumanos";
+import FormPerros from "../components/register/FormPerros";
+
 
 function Register() {
   const [activeTab, setActiveTab] = useState("humanos");
@@ -8,6 +10,11 @@ function Register() {
     { id: "humanos", label: "Humanos" },
     { id: "perros", label: "Perros" },
   ];
+
+  const tabComponents = {
+    humanos: <FormHumanos />,
+    perros: <FormPerros />,
+  };
 
   return (
     <div className="md:flex justify-center items-center md:min-h-screen bg-gray-100 md:p-6">
@@ -46,9 +53,8 @@ function Register() {
               role="tabpanel"
               aria-labelledby={`${tab.id}-tab`}
             >
-              <FormRegister />
+              {tabComponents[activeTab]}
             </div>
-
           ))}
         </div>
       </div>
