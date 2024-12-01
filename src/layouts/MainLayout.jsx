@@ -27,15 +27,13 @@ function MainLayout() {
     }
   }, [location.pathname]);
 
-  const isAuthRoute = location.pathname === "/Registro";
-
   return (
     <div className="flex flex-col min-h-screen">
-      {!isAuthRoute && <Nav />}
+      <Nav />
       <main className="flex-grow">
         <Outlet />
       </main>
-      {!isAuthRoute && <Footer />}
+      <Footer />
     </div>
   );
 }

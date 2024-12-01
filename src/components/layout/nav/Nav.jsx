@@ -1,11 +1,18 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import navLinks from "../../../data/NavLinks"
 import logo from "../../../assets/logo.png"
 
 function Nav() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isRegistered = sessionStorage.getItem("isRegistered");
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("isRegistered"); // Establecer en false
+    navigate("/"); // Redirige a la página de inicio o donde necesites
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -42,12 +49,14 @@ function Nav() {
 
         {/* Buttons and Menu Toggle */}
         <div className="flex md:order-2 space-x-3 rtl:space-x-reverse">
-          <Link
-            to="/Registro"
-            className="text-white bg-kelloggs hover:bg-kelloggsHover focus:ring-4 focus:outline-none focus:ring-kelloggs font-medium rounded-lg text-sm px-4 py-2"
-          >
-            Area privada
-          </Link>
+          {isRegistered && (
+            <button
+              onClick={handleLogout}
+              className="text-white bg-kelloggs hover:bg-kelloggsHover focus:ring-4 focus:outline-none focus:ring-kelloggs font-medium rounded-lg text-sm px-4 py-2"
+            >
+              Cerrar sesión
+            </button>
+          )}
           <button
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:ring-2 focus:ring-gray-200"
@@ -78,13 +87,18 @@ function Nav() {
             }`}
         >
           <ul className="flex flex-col md:flex-row md:space-x-8 font-medium">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link to={link.to} className={classNamePath(link.path)}>
-                  {link.name}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              if (link.name === "Registro" && isRegistered) {
+                return null; // Si está registrado, no mostrar el enlace de Registro
+              }
+              return (
+                <li key={link.name}>
+                  <Link to={link.to} className={classNamePath(link.path)}>
+                    {link.name}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </div>

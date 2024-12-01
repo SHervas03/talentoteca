@@ -1,63 +1,48 @@
-import { useState } from "react";
-import FormHumanos from "../components/register/FormHumanos";
-import FormPerros from "../components/register/FormPerros";
-
+import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const [activeTab, setActiveTab] = useState("humanos");
+  const navigate = useNavigate();
 
-  const tabs = [
-    { id: "humanos", label: "Humanos" },
-    { id: "perros", label: "Perros" },
-  ];
-
-  const tabComponents = {
-    humanos: <FormHumanos />,
-    perros: <FormPerros />,
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Evita que la página se recargue
+    sessionStorage.setItem("isRegistered", "true"); // Guarda el estado en sessionStorage
+    navigate("/"); // Redirige a la página de inicio
   };
 
   return (
-    <div className="md:flex justify-center items-center md:min-h-screen bg-gray-100 md:p-6">
-      <div className="w-full max-w-7xl bg-white rounded-lg md:shadow-lg md:p-6">
-        {/* Tabs Header */}
-        <div className="mb-4 border-b border-gray-200">
-          <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
-            {tabs.map((tab) => (
-              <li key={tab.id} className="mr-2" role="presentation">
-                <button
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`inline-block p-4 border-b-2 rounded-t-lg ${activeTab === tab.id
-                    ? "text-blue-600 border-blue-600"
-                    : "text-gray-500 border-transparent hover:text-gray-600 hover:border-gray-300"
-                    }`}
-                  type="button"
-                  role="tab"
-                  aria-controls={tab.id}
-                  aria-selected={activeTab === tab.id}
-                >
-                  {tab.label}
-                </button>
-              </li>
-            ))}
-          </ul>
+    <div className="flex items-center justify-center sm:py-32 py-2">
+      <form onSubmit={handleSubmit} className="max-w-xl w-full p-6 bg-white">
+        <div className="mb-5">
+          <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">
+            Nombre
+          </label>
+          <input
+            type="text"
+            id="name"
+            className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            required
+          />
         </div>
 
-        {/* Tabs Content */}
-        <div>
-          {tabs.map((tab) => (
-            <div
-              key={tab.id}
-              className={`rounded-lg bg-gray-50 ${activeTab === tab.id ? "block" : "hidden"
-                } flex items-stretch h-full`}
-              id={tab.id}
-              role="tabpanel"
-              aria-labelledby={`${tab.id}-tab`}
-            >
-              {tabComponents[activeTab]}
-            </div>
-          ))}
+        <div className="mb-5">
+          <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            id="password"
+            className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            required
+          />
         </div>
-      </div>
+
+        <button
+          type="submit"
+          className="w-full px-5 py-2.5 text-sm font-medium text-white bg-kelloggs rounded-lg hover:bg-kelloggsHover focus:ring-4 focus:outline-none focus:ring-blue-300"
+        >
+          Iniciar sesión
+        </button>
+      </form>
     </div>
   );
 }
