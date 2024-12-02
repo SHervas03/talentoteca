@@ -20,7 +20,6 @@ function Register() {
             type="text"
             id="name"
             className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-            required
           />
         </div>
 
@@ -32,7 +31,6 @@ function Register() {
             type="password"
             id="password"
             className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-            required
           />
         </div>
 

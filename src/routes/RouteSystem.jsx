@@ -5,6 +5,7 @@ import Recipes from '../pages/Recipes.jsx';
 import FAQ from '../pages/FAQ.jsx';
 import Register from '../pages/Register.jsx';
 import Pets from '../pages/Pets.jsx';
+import Shop from '../pages/Shop.jsx';
 
 function RouteSystem() {
 
@@ -17,6 +18,7 @@ function RouteSystem() {
                     <Route path="FAQ" element={<FAQ />} />
                     <Route path="Registro" element={<Register />} />
                     <Route path="Mascotas" element={<Pets />} />
+                    <Route path="Tienda" element={<Shop />} />
                 </Route>
             </Routes>
         </BrowserRouter>

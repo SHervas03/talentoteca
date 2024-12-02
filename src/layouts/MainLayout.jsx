@@ -23,6 +23,9 @@ function MainLayout() {
       case "/Mascotas":
         document.title = "Mascotas";
         break;
+      case "/Tienda":
+        document.title = "Tienda";
+        break;
       default:
     }
   }, [location.pathname]);

@@ -3,12 +3,23 @@ import { useState, useEffect } from "react";
 function Pets() {
   const [isRegistered, setIsRegistered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [pets, setPets] = useState([]); // Estado para las mascotas
+  const [petData, setPetData] = useState({
+    name: "",
+    breed: "",
+    weight: "",
+    age: "",
+    illnesses: "",
+    physicalActivity: "",
+    size: "Grande",
+    preferences: "",
+  });
 
   // Comprobar el valor de isRegistered al montar el componente
   useEffect(() => {
     const registeredStatus = sessionStorage.getItem("isRegistered");
     setIsRegistered(registeredStatus === "true");
-  }, []); // Se ejecuta una vez cuando el componente se monta
+  }, []);
 
   // Función para abrir el modal
   const openModal = () => setIsModalOpen(true);
@@ -16,23 +27,72 @@ function Pets() {
   // Función para cerrar el modal
   const closeModal = () => setIsModalOpen(false);
 
+  // Función para manejar el cambio en los campos del formulario
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPetData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  // Función para guardar la mascota
+  const savePet = () => {
+    setPets((prevPets) => [...prevPets, petData]);
+    setPetData({
+      name: "",
+      breed: "",
+      weight: "",
+      age: "",
+      illnesses: "",
+      physicalActivity: "",
+      size: "Grande",
+      preferences: "",
+    });
+    closeModal();
+  };
+
+  // Función para eliminar una mascota
+  const deletePet = (index) => {
+    setPets((prevPets) => prevPets.filter((_, i) => i !== index));
+  };
+
   return (
-    <div className="flex justify-center items-center m-32">
-      <div className="text-center">
-        {isRegistered ? (
-          <>
-            <h1 className="mb-4 text-xl font-bold text-gray-800">Todavía no hay mascotas</h1>
+    <div className="flex flex-col items-center">
+      {isRegistered ? (
+        <>
+          <div className="flex w-full justify-end p-4">
             <button
               onClick={openModal}
-              className="rounded-md bg-kelloggs px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-kelloggsHover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="rounded-md bg-kelloggs px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-kelloggsHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
             >
-              Añadir
+              Añadir Mascota
             </button>
-          </>
-        ) : (
-          <h1 className="mb-4 text-xl font-bold text-gray-800">Necesario iniciar sesión</h1>
-        )}
-      </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-5 w-full p-4">
+            {pets.map((pet, index) => (
+              <div
+                key={index}
+                className="max-w-auto bg-white border border-gray-200 rounded-lg shadow"
+              >
+                <div className="p-5">
+                  <h5 className="mb-2 text-xl font-bold text-gray-900">{pet.name}</h5>
+                  <p className="mb-3 text-sm text-gray-700">Raza: {pet.breed}</p>
+                  <p className="mb-3 text-sm text-gray-700">Peso: {pet.weight} kg</p>
+                  <p className="mb-3 text-sm text-gray-700">Edad: {pet.age} años</p>
+                  <p className="mb-3 text-sm text-gray-700">Tamaño: {pet.size}</p>
+                  <button
+                    onClick={() => deletePet(index)}
+                    className="text-red-600 hover:underline"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        <h1 className="my-4 text-xl font-bold text-gray-800">Necesario registrarse</h1>
+      )}
 
       {/* Modal */}
       {isModalOpen && (
@@ -44,159 +104,87 @@ function Pets() {
               <button
                 type="button"
                 onClick={closeModal}
-                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center"
+                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8"
               >
-                <svg
-                  className="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                  />
-                </svg>
-                <span className="sr-only">Close modal</span>
+                ×
               </button>
             </div>
-
-            {/* Modal Body with Form */}
-            <div className="space-y-4 mt-4">
-              <form>
-                <div className="mb-4">
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-900"
-                  >
-                    Nombre
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="breed"
-                    className="block text-sm font-medium text-gray-900"
-                  >
-                    Raza
-                  </label>
-                  <input
-                    type="text"
-                    id="breed"
-                    className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="weight"
-                    className="block text-sm font-medium text-gray-900"
-                  >
-                    Peso
-                  </label>
-                  <input
-                    type="number"
-                    id="weight"
-                    className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="age"
-                    className="block text-sm font-medium text-gray-900"
-                  >
-                    Edad
-                  </label>
-                  <input
-                    type="number"
-                    id="age"
-                    className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="diseases"
-                    className="block text-sm font-medium text-gray-900"
-                  >
-                    Enfermedades
-                  </label>
-                  <input
-                    type="text"
-                    id="diseases"
-                    className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="physicalActivity"
-                    className="block text-sm font-medium text-gray-900"
-                  >
-                    Actividad física
-                  </label>
-                  <input
-                    type="text"
-                    id="physicalActivity"
-                    className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="size"
-                    className="block text-sm font-medium text-gray-900"
-                  >
-                    Tamaño
-                  </label>
-                  <select
-                    id="size"
-                    className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  >
-                    <option value="large">Grande</option>
-                    <option value="medium">Mediano</option>
-                    <option value="small">Pequeño</option>
-                  </select>
-                </div>
-
-                <div className="mb-4">
-                  <label
-                    htmlFor="otherConsiderations"
-                    className="block text-sm font-medium text-gray-900"
-                  >
-                    Otras consideraciones/Preferencias
-                  </label>
-                  <textarea
-                    id="otherConsiderations"
-                    className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                    rows="4"
-                  ></textarea>
-                </div>
-
-                {/* Submit Button */}
-                <div className="flex justify-end">
-                  <button
-                    type="submit"
-                    className="text-white bg-kelloggs px-4 py-2 rounded-lg"
-                  >
-                    Guardar Mascota
-                  </button>
-                </div>
-              </form>
+            {/* Modal Body */}
+            <div className="py-4">
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Nombre"
+                  value={petData.name}
+                  onChange={handleChange}
+                  className="w-full border-gray-300 border border-gray-300 rounded-md p-2"
+                />
+                <input
+                  type="text"
+                  name="breed"
+                  placeholder="Raza"
+                  value={petData.breed}
+                  onChange={handleChange}
+                  className="w-full border-gray-300 border border-gray-300 rounded-md p-2"
+                />
+                <input
+                  type="number"
+                  name="weight"
+                  placeholder="Peso (kg)"
+                  value={petData.weight}
+                  onChange={handleChange}
+                  className="w-full border-gray-300 border border-gray-300 rounded-md p-2"
+                />
+                <input
+                  type="number"
+                  name="age"
+                  placeholder="Edad (años)"
+                  value={petData.age}
+                  onChange={handleChange}
+                  className="w-full border-gray-300 border border-gray-300 rounded-md p-2"
+                />
+                <textarea
+                  name="illnesses"
+                  placeholder="Enfermedades"
+                  value={petData.illnesses}
+                  onChange={handleChange}
+                  className="w-full border-gray-300 border border-gray-300 rounded-md p-2"
+                />
+                <textarea
+                  name="physicalActivity"
+                  placeholder="Actividad física"
+                  value={petData.physicalActivity}
+                  onChange={handleChange}
+                  className="w-full border-gray-300 border border-gray-300 rounded-md p-2"
+                />
+                <select
+                  name="size"
+                  value={petData.size}
+                  onChange={handleChange}
+                  className="w-full border-gray-300 border border-gray-300 rounded-md p-2"
+                >
+                  <option value="Grande">Grande</option>
+                  <option value="Mediano">Mediano</option>
+                  <option value="Pequeño">Pequeño</option>
+                </select>
+                <textarea
+                  name="preferences"
+                  placeholder="Otras consideraciones/preferencias"
+                  value={petData.preferences}
+                  onChange={handleChange}
+                  className="w-full border-gray-300 border border-gray-300 rounded-md p-2"
+                />
+              </div>
+            </div>
+            {/* Modal Footer */}
+            <div className="flex justify-end">
+              <button
+                onClick={savePet}
+                className="rounded-md bg-kelloggs px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-kelloggsHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+              >
+                Guardar Mascota
+              </button>
             </div>
           </div>
         </div>

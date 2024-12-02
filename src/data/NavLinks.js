@@ -15,6 +15,11 @@ const NavLinks = [
         to: "/Mascotas"
     },
     {
+        name: "Tienda",
+        path: "/Tienda",
+        to: "/Tienda"
+    },
+    {
         name: "FAQ",
         path: "/FAQ",
         to: "/FAQ"
