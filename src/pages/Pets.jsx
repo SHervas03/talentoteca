@@ -21,6 +21,19 @@ function Pets() {
     setIsRegistered(registeredStatus === "true");
   }, []);
 
+  // Recuperar mascotas desde sessionStorage al montar el componente
+  useEffect(() => {
+    const storedPets = JSON.parse(sessionStorage.getItem("pets")) || [];
+    if (storedPets.length > 0) {
+      setPets(storedPets); // Solo cargar si hay mascotas válidas
+    }
+  }, []);
+
+  // Guardar mascotas en sessionStorage cada vez que se actualice el estado de pets
+  useEffect(() => {
+    sessionStorage.setItem("pets", JSON.stringify(pets));
+  }, [pets]);
+
   // Función para abrir el modal
   const openModal = () => setIsModalOpen(true);
 
