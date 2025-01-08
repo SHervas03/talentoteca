@@ -6,6 +6,7 @@ import FAQ from '../pages/FAQ.jsx';
 import Register from '../pages/Register.jsx';
 import Pets from '../pages/Pets.jsx';
 import Shop from '../pages/Shop.jsx';
+import RecipeDetail from '../pages/RecipeDetail.jsx';
 
 function RouteSystem() {
 
@@ -15,9 +16,10 @@ function RouteSystem() {
                 <Route path="" element={<MainLayout />}>
                     <Route index element={<Index />} />
                     <Route path="Recetas" element={<Recipes />} />
+                    <Route path="Recetas/:key" element={<RecipeDetail />} />
                     <Route path="FAQ" element={<FAQ />} />
                     <Route path="Registro" element={<Register />} />
-                    <Route path="Mascotas" element={<Pets />} />
+                    <Route path="Perros" element={<Pets />} />
                     <Route path="Tienda" element={<Shop />} />
                 </Route>
             </Routes>

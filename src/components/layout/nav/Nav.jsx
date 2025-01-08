@@ -128,7 +128,11 @@ function Nav() {
             <span className="sr-only">Close menu</span>
           </button>
           <ul className="flex flex-col items-center space-y-6 text-lg font-medium">
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              if (link.name === "Registro" && isRegistered) {
+                return null; // Si está registrado, no mostrar el enlace de Registro
+              }
+              return (
               <li key={link.name}>
                 <Link
                   to={link.path}
@@ -138,7 +142,8 @@ function Nav() {
                   {link.name}
                 </Link>
               </li>
-            ))}
+              )
+            })}
           </ul>
         </div>
       )}

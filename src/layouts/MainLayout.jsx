@@ -20,8 +20,8 @@ function MainLayout() {
       case "/Registro":
         document.title = "Registro";
         break;
-      case "/Mascotas":
-        document.title = "Mascotas";
+      case "/Perros":
+        document.title = "Perros";
         break;
       case "/Tienda":
         document.title = "Tienda";

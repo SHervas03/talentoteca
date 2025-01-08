@@ -76,11 +76,14 @@ function Pets() {
               onClick={openModal}
               className="rounded-md bg-kelloggs px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-kelloggsHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
             >
-              Añadir Mascota
+              Añadir Perro
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-5 w-full p-4">
+          {pets.length === 0 ? (
+            <p className="text-xl">No hay perros registrados</p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-5 w-full p-4">
             {pets.map((pet, index) => (
               <div
                 key={index}
@@ -102,6 +105,7 @@ function Pets() {
               </div>
             ))}
           </div>
+          )}
         </>
       ) : (
         <h1 className="my-4 text-xl font-bold text-gray-800">Necesario registrarse</h1>
@@ -113,7 +117,7 @@ function Pets() {
           <div className="relative w-full max-w-xl bg-white p-5 rounded-lg">
             {/* Modal Header */}
             <div className="flex items-center justify-between border-b pb-4">
-              <h3 className="text-xl font-semibold text-gray-900">Añadir Mascota</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Añadir Mascota (No necesario rellenar ningun campo)</h3>
               <button
                 type="button"
                 onClick={closeModal}
@@ -196,7 +200,7 @@ function Pets() {
                 onClick={savePet}
                 className="rounded-md bg-kelloggs px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-kelloggsHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
               >
-                Guardar Mascota
+                Guardar Perro
               </button>
             </div>
           </div>

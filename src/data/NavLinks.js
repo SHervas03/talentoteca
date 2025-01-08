@@ -10,9 +10,9 @@ const NavLinks = [
         to: "/Recetas"
     },
     {
-        name: "Mis Mascotas",
-        path: "/Mascotas",
-        to: "/Mascotas"
+        name: "Mis Perros",
+        path: "/Perros",
+        to: "/Perros"
     },
     {
         name: "Tienda",

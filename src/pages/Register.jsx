@@ -18,6 +18,7 @@ function Register() {
           </label>
           <input
             type="text"
+            placeholder="(No hace falta rellenar este campo, iniciar sesión directamente)"
             id="name"
             className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
           />
@@ -29,6 +30,7 @@ function Register() {
           </label>
           <input
             type="password"
+            placeholder="(No hace falta rellenar este campo, iniciar sesión directamente)"
             id="password"
             className="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
           />

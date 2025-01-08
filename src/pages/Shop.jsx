@@ -140,7 +140,7 @@ function Shop() {
                   Total: ${totalPrice.toFixed(2)}
                 </p>
                 {discount > 0 && (
-                  <p>Descuento aplicado: -${discount.toFixed(2)}</p>
+                  <p>Descuento aplicado por tener {petCount} perros: -${discount.toFixed(2)}</p>
                 )}
               </div>
             ) : (
