@@ -1,11 +1,18 @@
-
+import image1 from "../assets/1.png"
+import image2 from "../assets/2.png"
+import image3 from "../assets/3.png"
+import image4 from "../assets/4.png"
+import image5 from "../assets/5.png"
+import image6 from "../assets/6.png"
+import image7 from "../assets/7.png"
+import image8 from "../assets/8.png"
 
 const Menus = [
     {
         "id": 1,
         "title": "Muffins de Calabaza y Avena",
         "description": "Deliciosos muffins sin azúcar hechos con calabaza y avena, perfectos para un desayuno saludable o un premio para tu perro.",
-        "image": "https://arquivet.com/img/cms/De%20que%20esta%20hecho%20el%20pienso%20para%20perros.jpg",
+        "image": image1,
         "key": "8b40c51d-c272-4a73-bdf0-15315347c94f",
         "ingredients": [
             "1 taza de puré de calabaza",
@@ -26,7 +33,7 @@ const Menus = [
         "id": 2,
         "title": "Sopa de Pollo y Verduras",
         "description": "Un reconfortante plato de sopa con pollo, zanahorias y calabacín, ideal para compartir en familia.",
-        "image": "https://arquivet.com/img/cms/De%20que%20esta%20hecho%20el%20pienso%20para%20perros.jpg",
+        "image": image2,
         "key": "efd665ff-34bb-4638-adde-e73a76f2c591",
         "ingredients": [
             "1 pechuga de pollo",
@@ -47,7 +54,7 @@ const Menus = [
         "id": 3,
         "title": "Tortitas de Manzana y Canela",
         "description": "Tortitas saludables y deliciosas con un toque de manzana y canela.",
-        "image": "https://arquivet.com/img/cms/De%20que%20esta%20hecho%20el%20pienso%20para%20perros.jpg",
+        "image": image3,
         "key": "1a488503-fc33-4b85-9946-64f6e903f37e",
         "ingredients": [
             "1 manzana rallada",
@@ -68,7 +75,7 @@ const Menus = [
         "id": 4,
         "title": "Ensalada de Quinoa y Manzana",
         "description": "Fresca ensalada rica en fibra y vitaminas, adecuada para acompañar tus comidas o como un snack para tu perro.",
-        "image": "https://arquivet.com/img/cms/De%20que%20esta%20hecho%20el%20pienso%20para%20perros.jpg",
+        "image": image4,
         "key": "1283350b-fcc0-453f-9cd8-a1d8b30f0c54",
         "ingredients": [
             "1 taza de quinoa",
@@ -92,7 +99,7 @@ const Menus = [
         "id": 5,
         "title": "Tortitas de Batata y Coco",
         "description": "Tortitas ligeras y deliciosas, hechas con batata y coco rallado, perfectas para compartir con tu perro.",
-        "image": "https://arquivet.com/img/cms/De%20que%20esta%20hecho%20el%20pienso%20para%20perros.jpg",
+        "image": image5,
         "key": "d574a21b-b61b-4c6f-9dd6-101b7059d13e",
         "ingredients": [
             "1 batata grande (cocida y hecha puré)",
@@ -115,7 +122,7 @@ const Menus = [
         "id": 6,
         "title": "Albóndigas de Pollo y Espinacas",
         "description": "Albóndigas suaves y jugosas, sin especias, ideales para toda la familia y para los perros.",
-        "image": "https://arquivet.com/img/cms/De%20que%20esta%20hecho%20el%20pienso%20para%20perros.jpg",
+        "image": image6,
         "key": "0e22fae1-5a6e-4145-8c54-ef4e8df40dc5",
         "ingredients": [
             "500g de pechuga de pollo molida",
@@ -137,7 +144,7 @@ const Menus = [
         "id": 7,
         "title": "Helado de Yogur y Arándanos",
         "description": "Un postre refrescante y saludable que puedes disfrutar con tu perro en los días calurosos.",
-        "image": "https://arquivet.com/img/cms/De%20que%20esta%20hecho%20el%20pienso%20para%20perros.jpg",
+        "image": image7,
         "key": "9481cdc3-a864-41b3-907a-0d042aaad5cd",
         "ingredients": [
             "1 taza de yogur natural (sin azúcar ni edulcorantes)",
@@ -157,7 +164,7 @@ const Menus = [
         "id": 8,
         "title": "Arroz Integral con Zanahorias y Calabacín",
         "description": "Un plato nutritivo y fácil de digerir que puedes preparar para ti y tu perro.",
-        "image": "https://arquivet.com/img/cms/De%20que%20esta%20hecho%20el%20pienso%20para%20perros.jpg",
+        "image": image8,
         "key": "1a488503-fc33-4b85-9946-64f6e903f37e",
         "ingredients": [
             "1 taza de arroz integral",
